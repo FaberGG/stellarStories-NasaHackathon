@@ -1,0 +1,103 @@
+/* Estilos globales para prevenir scroll no deseado */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Contenedor de capas */
+.contenedor-capas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Elementos interactivos */
+.elemento-interactivo {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.elemento-interactivo:hover {
+  transform: scale(1.05);
+}
+
+.elemento-interactivo:active {
+  transform: scale(0.98);
+}
+
+/* Prevenir selección de texto durante interacciones */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Contenedor para objetos arrastrables */
+.zona-arrastrable {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Info educativa sobrepuesta */
+.info-educativa {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 150;
+
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  max-width: 350px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.info-educativa h3 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.info-educativa p {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .info-educativa {
+    max-width: 280px;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .info-educativa h3 {
+    font-size: 0.75rem;
+  }
+
+  .info-educativa p {
+    font-size: 0.7rem;
+  }
+}

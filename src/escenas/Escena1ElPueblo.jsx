@@ -3,6 +3,8 @@ import EscenaWrapper from "../components/EscenaWrapper";
 import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import { motion } from "framer-motion";
+//importo la imagen de fondo
+import fondoEscuela from "../assets/img/escena1/fondo.png";
 
 /**
  * ESCENA 1 - El pueblo en el Cauca
@@ -31,7 +33,11 @@ const ContenidoEscena1 = () => {
       {/* FONDO: Patio de la escuela en el Cauca */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-200 to-green-200">
         {/* Placeholder para la imagen de fondo */}
-        {/* <img src="/assets/img/escena1/patio-escuela.png" alt="Patio de la escuela" className="w-full h-full object-cover" /> */}
+        <img
+          src={fondoEscuela}
+          alt="Patio de la escuela"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
           [Fondo: Patio de la escuela en el Cauca]
         </div>

@@ -1,0 +1,132 @@
+/* Contenedor principal de la escena - ocupa toda la pantalla */
+.escena-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fondo que ocupa toda la pantalla con la ilustración */
+.escena-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Texto del narrador integrado en la escena */
+.texto-narrador {
+  position: absolute;
+  z-index: 100;
+  padding: 1.5rem 2rem;
+  border-radius: 1.2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: #fffee1;
+  font-family: "Shadows Into Light Two", cursive, sans-serif;
+
+  max-width: 90%;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+/* Posiciones predefinidas para el texto del narrador */
+.texto-narrador.posicion-arriba-derecha {
+  top: 2rem;
+  right: 2rem;
+  left: auto;
+  bottom: auto;
+}
+
+.texto-narrador.posicion-arriba-izquierda {
+  top: 2rem;
+  left: 2rem;
+  right: auto;
+  bottom: auto;
+}
+
+.texto-narrador.posicion-arriba-centro {
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  bottom: auto;
+}
+
+.texto-narrador.posicion-abajo-derecha {
+  bottom: 2rem;
+  right: 2rem;
+  top: auto;
+  left: auto;
+}
+
+.texto-narrador.posicion-abajo-izquierda {
+  bottom: 2rem;
+  left: 2rem;
+  top: auto;
+  right: auto;
+}
+
+.texto-narrador.posicion-abajo-centro {
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  right: auto;
+}
+
+.texto-narrador.posicion-centro {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: auto;
+  bottom: auto;
+}
+
+/* Área de contenido interactivo */
+.escena-contenido {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .texto-narrador {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    max-width: 85%;
+  }
+
+  .texto-narrador.posicion-arriba-derecha,
+  .texto-narrador.posicion-arriba-izquierda,
+  .texto-narrador.posicion-abajo-derecha,
+  .texto-narrador.posicion-abajo-izquierda {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    bottom: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .texto-narrador {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}

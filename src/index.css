@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600&family=Comic+Neue:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&family=Yomogi&display=swap");
+:root {
+  color: #3b2f2f;
+  font-family: "Shadows Into Light Two", cursive, sans-serif;
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
