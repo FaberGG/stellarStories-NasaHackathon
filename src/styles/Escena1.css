@@ -1,0 +1,99 @@
+.fondo {
+    filter: brightness(0.95);
+}
+
+.fondo-img {
+    width: 100%;
+    height: 100vh;          /* ocupa todo el alto visible */
+    overflow: hidden;       /* evita barras blancas o scroll */
+}
+
+.contenedor {
+    top: 20%;
+    height: 80%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* dos columnas del mismo ancho */
+    justify-items: center;
+    /* centrar dentro de cada columna */
+    align-items: center;
+    pointer-events: none;
+    /* evita que el contenedor capture clicks (los hijos pueden reactivar) */
+    box-sizing: border-box;
+}
+
+.caja {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* que el nombre quede abajo del avatar */
+    pointer-events: auto; /* permite clicks en la caja */
+    padding: 1.5rem 2rem;
+    border-radius: 1.2rem;
+    background: rgba(139, 77, 197, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.img-j{
+    width: 25vh;
+    height: 35vh;
+}
+.img-m {
+    width: 25vh;
+    height: 35vh;
+}
+
+.name {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+}
+
+.indicador-click {
+    position: relative;
+    top: 90%;
+    left: 50%;
+    background-color: aliceblue;
+    display: inline-block;
+    /* el fondo se ajusta al contenido */
+    padding: 6px 10px;
+    /* espacio interno */
+    max-width: 200px;
+    /* opcional, para no crecer demasiado */
+    border-radius: 10%;
+    font-size: large;
+    z-index: 1;
+}
+
+.div-texto-click {
+    position: absolute;
+    /* si quieres que se quede flotando */
+    top: 40%;
+    left: 45%;
+    transform: translateX(-50%);
+    /* centrar respecto al personaje */
+
+    display: inline-block;
+    /* el fondo se ajusta al contenido */
+    padding: 6px 10px;
+    /* espacio interno */
+    max-width: 200px;
+    /* opcional, para no crecer demasiado */
+
+    background-color: aliceblue;
+    border-radius: 35%;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    z-index: 1;
+}
+
+.texto-click {
+    font-size: 20px;
+}
