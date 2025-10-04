@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/CapaIlustracion.css";
 
 /**
  * Componente para manejar capas de ilustraciones
@@ -20,8 +21,8 @@ const CapaIlustracion = ({
       src={src}
       alt={alt}
       onClick={onClick}
-      className={`absolute inset-0 w-full h-full object-contain transition-all duration-300 ${animacion} ${className} ${
-        onClick ? "cursor-pointer hover:scale-105" : ""
+      className={`capa-ilustracion ${animacion} ${className} ${
+        onClick ? "clickable" : ""
       }`}
       style={{
         zIndex,
@@ -37,9 +38,7 @@ const CapaIlustracion = ({
  * Contenedor de capas - Sistema de composición de imágenes
  */
 export const ContenedorCapas = ({ children, className = "" }) => {
-  return (
-    <div className={`relative w-full h-full ${className}`}>{children}</div>
-  );
+  return <div className={`contenedor-capas ${className}`}>{children}</div>;
 };
 
 /**
@@ -75,21 +74,16 @@ export const ObjetoArrastrable = ({
       draggable
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      className={`absolute cursor-move transition-transform ${
-        arrastrando ? "scale-110 opacity-70" : ""
+      className={`objeto-arrastrable ${
+        arrastrando ? "arrastrando" : ""
       } ${className}`}
       style={{
         left: `${posicion.x}px`,
         top: `${posicion.y}px`,
-        zIndex: arrastrando ? 1000 : 10,
       }}
     >
       {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-full object-contain pointer-events-none"
-        />
+        <img src={src} alt={alt} className="w-full h-full object-contain" />
       ) : (
         children
       )}
@@ -137,9 +131,9 @@ export const ZonaSoltar = ({
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`relative transition-all duration-300 ${
-        sobreZona ? "ring-4 ring-green-400 bg-green-50/30" : ""
-      } ${activa ? "ring-2 ring-blue-300" : ""} ${className}`}
+      className={`zona-soltar ${sobreZona ? "sobre-zona" : ""} ${
+        activa ? "activa" : ""
+      } ${className}`}
     >
       {children}
     </div>

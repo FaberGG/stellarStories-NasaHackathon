@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import "../styles/Dialogo.css";
 /**
  * Componente para mostrar diálogos de personajes
  * Tipo burbuja de cómic con animación

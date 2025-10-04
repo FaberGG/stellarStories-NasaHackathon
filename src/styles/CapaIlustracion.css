@@ -1,0 +1,194 @@
+/* Contenedor de capas - Sistema de composición de imágenes */
+.contenedor-capas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.contenedor-capas > * {
+  pointer-events: auto;
+}
+
+/* Capa de ilustración individual */
+.capa-ilustracion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.capa-ilustracion.clickable {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.capa-ilustracion.clickable:hover {
+  transform: scale(1.05);
+}
+
+/* Objeto arrastrable */
+.objeto-arrastrable {
+  position: absolute;
+  cursor: move;
+  transition: transform 0.3s ease;
+  user-select: none;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.objeto-arrastrable.arrastrando {
+  transform: scale(1.1);
+  opacity: 0.7;
+  z-index: 1000;
+}
+
+.objeto-arrastrable img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Zona de soltar objetos */
+.zona-soltar {
+  position: relative;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.zona-soltar.sobre-zona {
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 4px solid #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.zona-soltar.activa {
+  border: 2px solid #3b82f6;
+}
+
+/* Elementos interactivos en la escena */
+.elemento-escena {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+.elemento-escena:hover {
+  transform: scale(1.05);
+}
+
+.elemento-escena:active {
+  transform: scale(0.98);
+}
+
+/* Personajes interactivos */
+.personaje-interactivo {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.personaje-interactivo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.personaje-interactivo:active {
+  transform: scale(0.95);
+}
+
+/* Objetos del escenario */
+.objeto-escenario {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 15;
+  transition: all 0.3s ease;
+}
+
+.objeto-escenario.interactivo {
+  cursor: pointer;
+}
+
+.objeto-escenario.interactivo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Indicadores de interacción */
+.indicador-click {
+  position: absolute;
+  background: white;
+  color: #1f2937;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+  animation: flotar 1.5s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* Tooltip informativo */
+.tooltip-info {
+  position: absolute;
+  background: #3b82f6;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  white-space: nowrap;
+  z-index: 100;
+  pointer-events: none;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .indicador-click {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .tooltip-info {
+    font-size: 0.7rem;
+    padding: 0.6rem 0.8rem;
+  }
+}

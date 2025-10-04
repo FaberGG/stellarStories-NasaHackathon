@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "../styles/EscenaBase.css";
 /**
  * Componente base para escenas interactivas
  * Maneja el estado común de interacciones, animaciones y progreso
