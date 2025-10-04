@@ -4,6 +4,7 @@ import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import Dialogo from "../components/Dialogo";
 import { motion } from "framer-motion";
+
 /**
  * ESCENA 2 - En la escuela
  * La profesora cóndor explica sobre la tormenta solar
