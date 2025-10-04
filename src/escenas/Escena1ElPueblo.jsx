@@ -35,13 +35,13 @@ const ContenidoEscena1 = () => {
       {/* CONTENEDOR DE ELEMENTOS INTERACTIVOS */}
       <ContenedorCapas>
         {/* Info educativa */}
-        <div className="info-educativa">
+        {/* <div className="info-educativa">
           <h3>💡 ¿Sabías qué?</h3>
           <p>
             El Cauca es una región hermosa de Colombia con mucha biodiversidad.
             ¡Aquí comienza nuestra aventura sobre el clima espacial!
           </p>
-        </div>
+        </div> */}
       </ContenedorCapas>
     </>
   );

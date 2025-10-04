@@ -1,0 +1,393 @@
+/* MinijuegoMochila.css - CSS Puro sin Tailwind */
+
+/* ============================================
+   CONTENEDOR PRINCIPAL Y FONDO
+   ============================================ */
+
+.mochila-fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.mochila-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   ZONA DE DROP ACTIVA
+   ============================================ */
+
+.zona-drop-activa {
+  position: absolute;
+  left: 66.6%;
+  right: 5%;
+  top: 10%;
+  bottom: 10%;
+  height: 70%;
+  margin: auto 0;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.zona-drop-contenido {
+  width: 100%;
+  height: 100%;
+  border: 8px solid #4ade80;
+  border-radius: 24px;
+  background-color: rgba(134, 239, 172, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zona-drop-texto {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #15803d;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   BARRA DE PROGRESO
+   ============================================ */
+
+.barra-progreso-container {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.barra-progreso-titulo {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.barra-progreso-fondo {
+  width: 128px;
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.barra-progreso-relleno {
+  height: 100%;
+  background: linear-gradient(to right, #4ade80, #16a34a);
+  transition: width 0.5s ease;
+}
+
+.barra-progreso-texto {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* ============================================
+   ELEMENTOS ARRASTRABLES
+   ============================================ */
+
+.elemento-arrastrable {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: grab;
+  z-index: 50;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.elemento-arrastrable:active {
+  cursor: grabbing;
+}
+
+.elemento-usado {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.elemento-arrastrando {
+  opacity: 0.5;
+  transform: scale(0.75);
+}
+
+.elemento-imagen {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.elemento-nombre {
+  display: none;
+}
+
+.elemento-check {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.elemento-brillo {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+/* ============================================
+   ELEMENTOS AGREGADOS (MINI ICONOS)
+   ============================================ */
+
+.elementos-agregados-container {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.elementos-agregados-titulo {
+  font-size: 10px;
+  font-weight: bold;
+  color: #4b5563;
+  align-self: center;
+  margin-right: 4px;
+}
+
+.mini-elemento {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 2px solid #d1d5db;
+}
+
+.mini-elemento:hover {
+  transform: scale(1.15);
+}
+
+.mini-elemento-imagen {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.mini-elemento-x {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* ============================================
+   INFORMACIÓN EDUCATIVA
+   ============================================ */
+
+.info-educativa {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 288px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+}
+
+.info-educativa-titulo {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-educativa-texto {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   MENSAJE DE COMPLETADO
+   ============================================ */
+
+.mensaje-completado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
+  color: white;
+  padding: 32px 48px;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  text-align: center;
+}
+
+.mensaje-completado-emoji {
+  font-size: 3.75rem;
+  margin-bottom: 16px;
+}
+
+.mensaje-completado-titulo {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.mensaje-completado-subtitulo {
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+}
+
+.mensaje-completado-texto {
+  font-size: 0.875rem;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.mensaje-completado-checks {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.mensaje-completado-check {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+/* ============================================
+   PARTÍCULAS DE CELEBRACIÓN
+   ============================================ */
+
+.particulas-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 150;
+}
+
+.particula {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .elemento-arrastrable {
+    width: 80px;
+    height: 80px;
+  }
+
+  .elemento-imagen {
+    width: 32px;
+    height: 32px;
+  }
+
+  .elemento-nombre {
+    font-size: 8px;
+  }
+
+  .barra-progreso-container {
+    top: 8px;
+    right: 8px;
+    padding: 8px;
+  }
+
+  .barra-progreso-fondo {
+    width: 96px;
+  }
+
+  .info-educativa {
+    max-width: 200px;
+    padding: 12px;
+    font-size: 10px;
+  }
+
+  .mensaje-completado {
+    padding: 24px 32px;
+  }
+
+  .mensaje-completado-titulo {
+    font-size: 1.5rem;
+  }
+}

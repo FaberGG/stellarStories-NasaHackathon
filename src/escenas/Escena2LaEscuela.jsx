@@ -5,6 +5,7 @@ import { ContenedorCapas } from "../components/CapaIlustracion";
 import Dialogo from "../components/Dialogo";
 import { motion } from "framer-motion";
 import fondoEscuela from "../assets/img/escena2/fondo.png";
+import personajes from "../assets/img/escena2/personajes.png";
 /**
  * ESCENA 2 - En la escuela
  * La profesora cóndor explica sobre la tormenta solar
@@ -44,11 +45,11 @@ const ContenidoEscena2 = () => {
           className="absolute left-1/2 transform -translate-x-1/2 top-[25%]"
           style={{ zIndex: 10 }}
         >
-          {/* <img src="/assets/img/escena2/profesora-condor.png" alt="Profesora" /> */}
-          <div className="w-40 h-48 bg-gray-700 rounded-lg flex flex-col items-center justify-center text-white shadow-2xl">
-            <div className="text-5xl mb-2">🦅</div>
-            <div className="text-sm font-bold">Profesora</div>
-          </div>
+          <img
+            src={personajes}
+            alt="Profesora Cóndor y estudiantes"
+            className="h-8"
+          />
         </div>
 
         {/* DIÁLOGO de la profesora */}
@@ -64,7 +65,7 @@ const ContenidoEscena2 = () => {
         )}
 
         {/* Info educativa */}
-        <div
+        {/* <div
           className="absolute bottom-4 left-4 bg-black/70 text-white p-3 rounded-lg max-w-xs"
           style={{ zIndex: 100 }}
         >
@@ -73,7 +74,7 @@ const ContenidoEscena2 = () => {
             Las tormentas solares son explosiones en el Sol que envían energía y
             partículas al espacio. ¡Pueden afectar la tecnología en la Tierra!
           </p>
-        </div>
+        </div> */}
       </ContenedorCapas>
     </>
   );
