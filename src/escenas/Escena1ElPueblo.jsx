@@ -3,7 +3,7 @@ import EscenaWrapper from "../components/EscenaWrapper";
 import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import { motion } from "framer-motion";
-import fondoEscuela from "../assets/img/escena1/fondo.png";
+import fondoPatio from "../assets/img/escena1/fondo.png";
 import "../styles/CapaIlustracion.css";
 
 const ContenidoEscena1 = () => {
@@ -26,7 +26,7 @@ const ContenidoEscena1 = () => {
       {/* FONDO: Patio de la escuela */}
       <div className="absolute inset-0" style={{ zIndex: 1 }}>
         <img
-          src={fondoEscuela}
+          src={fondoPatio}
           alt="Patio de la escuela"
           className="w-full h-full object-cover"
         />
@@ -56,7 +56,10 @@ const Escena1ElPueblo = () => {
       <EscenaWrapper
         textoNarrador={textoNarrador}
         fondoColor="from-green-100 to-blue-100"
-        posicionTexto="arriba-centro"
+        // Configuración del texto narrador - estilo cuento infantil
+        posicionTexto="centro-izquierda" // Posición a la izquierda para que el personaje esté a la derecha
+        estiloTexto="justificado" // Texto justificado para párrafos largos
+        conFondo={false} // Sin fondo (estilo cuento puro)
       >
         <ContenidoEscena1 />
       </EscenaWrapper>
