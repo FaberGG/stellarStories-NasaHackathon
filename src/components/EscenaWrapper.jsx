@@ -18,7 +18,16 @@ const EscenaWrapper = ({
 
       {/* Texto del narrador superpuesto */}
       {mostrarTexto && textoNarrador && (
-        <div className={`texto-narrador posicion-${posicionTexto}`}>
+        // <div className={`texto-narrador posicion-${posicionTexto}`}>
+        //   {textoNarrador}
+        // </div>
+        // O con fondo opcional
+
+        <div
+          className={
+            "texto-narrador posicion-centro-izquierda estilo-izquierda"
+          }
+        >
           {textoNarrador}
         </div>
       )}
