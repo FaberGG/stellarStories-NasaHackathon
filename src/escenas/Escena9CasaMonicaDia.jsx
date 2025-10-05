@@ -46,7 +46,7 @@ const Escena9CasaMonicaDia = () => {
         textoNarrador={textoNarrador}
         fondoColor="from-blue-50 to-purple-50"
         posicionTexto="arriba-izquierda"
-        estiloTexto="compacto"
+        estiloTexto="flotante"
         conFondo="sutil"
       >
         <ContenidoEscena9 />
