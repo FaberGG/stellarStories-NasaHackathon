@@ -1,0 +1,121 @@
+/* ============================================
+   ESCENA 10 - ESCUELA MÓNICA Y JAVIER
+   ============================================ */
+
+/* Contenedor de fondo */
+.escena10-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.escena10-imagen-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   DIÁLOGO DE MÓNICA - CENTRO SIN FONDO
+   ============================================ */
+
+/* Contenedor del diálogo centrado */
+.escena10-dialogo-monica {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  max-width: 300px;
+  padding: 0 2rem;
+  animation: aparecer-dialogo 0.8s ease-out;
+}
+
+/* Texto del diálogo sin fondo */
+.escena10-dialogo-texto {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #0e0d0d;
+  font-family: "Shadows Into Light Two", cursive, sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+/* Nombre del personaje en el diálogo */
+.escena10-personaje {
+  font-weight: bold;
+  color: #e8760b;
+  text-shadow: 2px 2px 4px #ffd700(0, 0, 0, 0.9),
+    -1px -1px 2px #ffd700(0, 0, 0, 0.8), 0 0 15px #ffd700(0, 0, 0, 0.5);
+}
+
+/* Animación de aparición */
+@keyframes aparecer-dialogo {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ============================================
+   AJUSTES PARA TEXTO DEL NARRADOR
+   ============================================ */
+
+/* Texto del narrador en esquina superior izquierda */
+.escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+  max-width: 420px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  top: 3%;
+  left: 3%;
+}
+
+/* ============================================
+   RESPONSIVE - ADAPTACIÓN MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .escena10-dialogo-monica {
+    max-width: 400px;
+    padding: 0 1.5rem;
+  }
+
+  .escena10-dialogo-texto {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+    max-width: 340px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .escena10-dialogo-monica {
+    max-width: 300px;
+    padding: 0 1rem;
+  }
+
+  .escena10-dialogo-texto {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+    max-width: 270px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    top: 2%;
+    left: 2%;
+  }
+}

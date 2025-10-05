@@ -18,6 +18,12 @@
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
+  -webkit-user-select: none; /* Propiedad para navegadores basados en WebKit (Chrome, Safari) */
+  -moz-user-select: none; /* Propiedad para Firefox */
+  -ms-user-select: none; /* Propiedad para Internet Explorer/Edge */
+  user-select: none; /* Estándar */
+  /* Opcional: Esto también puede ayudar */
+  -webkit-user-drag: none;
 }
 
 /* Efecto de oscurecimiento cuando ocurre el apagón */

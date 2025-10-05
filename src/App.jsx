@@ -13,6 +13,9 @@ import Escena5ElSol from "./escenas/Escena5ElSol";
 import Escena6ElApagon from "./escenas/Escena6ElApagon";
 import Escena7LasAuroras from "./escenas/Escena7LasAuroras";
 import Escena8CasaJavierDia from "./escenas/Escena8CasaJavierDia";
+import Escena9CasaMonicaDia from "./escenas/Escena9CasaMonicaDia";
+import Escena10EscuelaMonicaJavier from "./escenas/Escena10EscuelaMonicaJavier";
+import Escena11Final from "./escenas/Escena11Final";
 import EscenaTemplate from "./escenas/EscenaPlantillaBase";
 
 const escenas = [
@@ -25,6 +28,9 @@ const escenas = [
   Escena6ElApagon,
   Escena7LasAuroras,
   Escena8CasaJavierDia,
+  Escena9CasaMonicaDia,
+  Escena10EscuelaMonicaJavier,
+  Escena11Final,
 ];
 
 const ContenidoApp = () => {

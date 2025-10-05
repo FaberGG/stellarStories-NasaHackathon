@@ -77,6 +77,12 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+  -webkit-user-select: none; /* Propiedad para navegadores basados en WebKit (Chrome, Safari) */
+  -moz-user-select: none; /* Propiedad para Firefox */
+  -ms-user-select: none; /* Propiedad para Internet Explorer/Edge */
+  user-select: none; /* Estándar */
+  /* Opcional: Esto también puede ayudar */
+  -webkit-user-drag: none;
 }
 
 /* Imagen de fondo - mantiene aspecto, centrada */

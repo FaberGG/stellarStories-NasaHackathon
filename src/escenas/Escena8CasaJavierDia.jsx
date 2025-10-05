@@ -21,7 +21,7 @@ const ContenidoEscena8 = () => {
     const timer = setTimeout(() => {
       setMostrarDialogoPapa(true);
       registrarInteraccion("dialogo-papa-iniciado");
-    }, 2000);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [registrarInteraccion]);
@@ -49,9 +49,9 @@ const ContenidoEscena8 = () => {
         <Dialogo
           texto="No te preocupes hijo, algunas señales todavía están dormidas y tardarán un poco en volver. Lo importante es que en casa todo funciona bien."
           personaje="Papá Capibara"
-          tipo="dialogo"
+          tipo="narrador"
           posicion="custom"
-          posicionCustom={{ x: 55, y: 5 }}
+          posicionCustom={{ x: 50, y: 5 }}
           visible={mostrarDialogoPapa}
           duracion={8000}
           onCerrar={handleCerrarDialogoPapa}

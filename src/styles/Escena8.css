@@ -17,6 +17,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-user-select: none; /* Propiedad para navegadores basados en WebKit (Chrome, Safari) */
+  -moz-user-select: none; /* Propiedad para Firefox */
+  -ms-user-select: none; /* Propiedad para Internet Explorer/Edge */
+  user-select: none; /* Estándar */
+  /* Opcional: Esto también puede ayudar */
+  -webkit-user-drag: none;
 }
 
 /* ============================================
