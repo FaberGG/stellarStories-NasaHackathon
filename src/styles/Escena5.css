@@ -1,0 +1,211 @@
+/* ============================================
+   ESCENA 5 - EL SOL Y LA CME
+   ============================================ */
+
+/* Contenedor de fondo */
+.escena5-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.escena5-imagen-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* Área clickeable sobre el sol */
+.escena5-area-sol {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  width: 25%;
+  height: 50%;
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.escena5-area-sol:hover {
+  transform: scale(1.02);
+}
+
+.escena5-area-sol:active {
+  transform: scale(0.98);
+}
+
+/* Barra de progreso */
+.escena5-progreso {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 1.2rem 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  min-width: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.escena5-progreso-instruccion {
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  opacity: 0.95;
+  font-style: italic;
+}
+
+.escena5-progreso-texto {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.escena5-progreso-barra {
+  width: 100%;
+  height: 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.escena5-progreso-relleno {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b00, #ffaa00, #ffdd00);
+  border-radius: 0.5rem;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 15px rgba(255, 170, 0, 0.9);
+  position: relative;
+}
+
+.escena5-progreso-relleno::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: brillo 1.5s ease-in-out infinite;
+}
+
+@keyframes brillo {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* CME (Eyección de Masa Coronal) - Sin rotación, solo movimiento horizontal */
+.escena5-cme {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  filter: drop-shadow(0 0 30px rgba(255, 100, 0, 0.9));
+}
+
+.escena5-cme-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+   RESPONSIVE - ADAPTACIÓN MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .escena5-area-sol {
+    left: 5%;
+    width: 30%;
+  }
+
+  .escena5-progreso {
+    min-width: 280px;
+    padding: 1rem 1.5rem;
+    bottom: 2rem;
+  }
+
+  .escena5-progreso-instruccion {
+    font-size: 0.75rem;
+  }
+
+  .escena5-progreso-texto {
+    font-size: 0.85rem;
+  }
+
+  .escena5-progreso-barra {
+    height: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .escena5-area-sol {
+    left: 5%;
+    width: 35%;
+    top: 20%;
+    height: 55%;
+  }
+
+  .escena5-progreso {
+    min-width: 240px;
+    padding: 0.8rem 1.2rem;
+    bottom: 1.5rem;
+  }
+
+  .escena5-progreso-instruccion {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .escena5-progreso-texto {
+    font-size: 0.75rem;
+  }
+
+  .escena5-progreso-barra {
+    height: 0.6rem;
+  }
+}
+
+/* Prevenir selección de elementos durante la interacción */
+.escena5-area-sol,
+.escena5-cme {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+}
