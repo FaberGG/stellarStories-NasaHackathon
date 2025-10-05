@@ -1,0 +1,39 @@
+
+.fondo-img {
+    position: absolute;
+    width: 100%;
+    height: 100vh;          /* ocupa todo el alto visible */
+    overflow: hidden;       /* evita barras blancas o scroll */
+}
+
+.javier-img {
+    top: 50%;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* que el nombre quede abajo del avatar */
+    pointer-events: auto; /* permite clicks en la caja */
+    padding: 1.5rem 2rem;
+    border-radius: 1.2rem;
+    background: rgba(139, 77, 197, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.img-j{
+    width: 25vh;
+    height: 35vh;
+}
+.img-m {
+    width: 25vh;
+    height: 35vh;
+}
+.name {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+}

@@ -4,23 +4,39 @@
 
 .fondo-img {
     width: 100%;
-    height: 100vh;          /* ocupa todo el alto visible */
-    overflow: hidden;       /* evita barras blancas o scroll */
+    height: 100vh;
+    /* ocupa todo el alto visible */
+    overflow: hidden;
+    /* evita barras blancas o scroll */
 }
 
 .contenedor {
-    top: 20%;
-    height: 80%;
+    position: relative;
+    /* Permite ubicar hijos con absolute */
+    width: 100%;
+    height: 100%;
+}
+
+/* Cada personaje se posiciona libremente */
+.personaje-interactivo-j,
+.personaje-interactivo-m {
     position: absolute;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* dos columnas del mismo ancho */
-    justify-items: center;
-    /* centrar dentro de cada columna */
-    align-items: center;
-    pointer-events: none;
-    /* evita que el contenedor capture clicks (los hijos pueden reactivar) */
-    box-sizing: border-box;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Javier, a la izquierda */
+.personaje-interactivo-j {
+    left: 15%;
+    /* distancia desde el borde izquierdo */
+    bottom: 15%;
+    /* distancia desde el borde inferior */
+}
+
+/* Mónica, a la derecha y un poco más arriba */
+.personaje-interactivo-m {
+    left: 48%;
+    bottom: 8%;
 }
 
 .caja {
@@ -30,21 +46,10 @@
     align-items: end;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end; /* que el nombre quede abajo del avatar */
-    pointer-events: auto; /* permite clicks en la caja */
-    padding: 1.5rem 2rem;
-    border-radius: 1.2rem;
-    background: rgba(139, 77, 197, 0.7);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-.img-j{
-    width: 25vh;
-    height: 35vh;
-}
-.img-m {
-    width: 25vh;
-    height: 35vh;
+    justify-content: flex-end;
+    /* que el nombre quede abajo del avatar */
+    pointer-events: auto;
+    /* permite clicks en la caja */
 }
 
 .name {
@@ -72,28 +77,28 @@
 }
 
 .div-texto-click {
+    position: relative;
+}
+
+.texto-click {
     position: absolute;
-    /* si quieres que se quede flotando */
-    top: 40%;
-    left: 45%;
-    transform: translateX(-50%);
-    /* centrar respecto al personaje */
-
-    display: inline-block;
-    /* el fondo se ajusta al contenido */
-    padding: 6px 10px;
-    /* espacio interno */
-    max-width: 200px;
-    /* opcional, para no crecer demasiado */
-
+    /* <--- clave */
+    font-size: 20px;
     background-color: aliceblue;
     border-radius: 35%;
     font-weight: bold;
     color: black;
     text-align: center;
+    padding: 6px 10px;
     z-index: 1;
 }
 
-.texto-click {
-    font-size: 20px;
+.texto-javier {
+    left: 15%;
+    top: 47%;
+}
+
+.texto-monica {
+    left: 50%;
+    top: 45%;
 }

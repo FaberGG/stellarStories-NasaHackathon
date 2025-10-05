@@ -7,7 +7,6 @@ import useSwipe from "./hooks/useSwipe";
 import Escena1ElPueblo from "./escenas/Escena1ElPueblo";
 import Escena2LaEscuela from "./escenas/Escena2LaEscuela";
 import Escena3CasaJavier from "./escenas/Escena3CasaJavier";
-import MinijuegoMochila from "./escenas/MinijuegoMochila";
 import Escena4CasaMonica from "./escenas/Escena4CasaMonica";
 import Escena5ElSol from "./escenas/Escena5ElSol";
 import Escena6ElApagon from "./escenas/Escena6ElApagon";
@@ -19,7 +18,6 @@ const escenas = [
   Escena1ElPueblo,
   Escena2LaEscuela,
   Escena3CasaJavier,
-  MinijuegoMochila,
   Escena4CasaMonica,
   Escena5ElSol,
   Escena6ElApagon,

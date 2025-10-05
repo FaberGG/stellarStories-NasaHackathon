@@ -3,7 +3,7 @@ import EscenaWrapper from "../components/EscenaWrapper";
 import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import { motion } from "framer-motion";
-import fondoEscuela from "../assets/img/escena1/fondo.png";
+import fondoEscuela from "../assets/img/escena1/fondo_escena_1.png";
 import img_javier from "../assets/img/escena1/javier.png";
 import img_monica from "../assets/img/escena1/monica.png";
 import "../styles/CapaIlustracion.css";
@@ -52,11 +52,7 @@ const ContenidoEscena1 = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="caja">
-            <img
-              src={img_javier}
-              alt="Javier"
-              className="img-j"
-            />
+
             <div className="name">Javier</div>
           </div>
 
@@ -82,11 +78,7 @@ const ContenidoEscena1 = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="caja">
-            <img
-              src={img_monica}
-              alt="Monica"
-              className="img-m"
-            />
+            
             <div className="name">Mónica</div>
           </div>
 
@@ -100,13 +92,21 @@ const ContenidoEscena1 = () => {
         {/* Mensaje de bienvenida cuando interactúan */}
         {personajeActivo && (
           <motion.div
-            className="div-texto-click"
+            className={`div-texto-click ${
+                personajeActivo === "javier"
+                  ? "texto-javier"
+                  : personajeActivo === "monica"
+                  ? "texto-monica"
+                  : ""
+              }`}
             style={{ zIndex: 50 }}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
           >
-            <p className="texto-click">
+            <p
+              className="texto-click"
+            >
               {personajeActivo === "javier"
                 ? "¡Hola! Soy Javier 👋"
                 : "¡Hola! Soy Mónica 👋"}
@@ -115,13 +115,13 @@ const ContenidoEscena1 = () => {
         )}
 
         {/* Info educativa */}
-        {/* <div className="info-educativa">
+        <div className="info-educativa">
           <h3>💡 ¿Sabías qué?</h3>
           <p>
             El Cauca es una región hermosa de Colombia con mucha biodiversidad.
             ¡Aquí comienza nuestra aventura sobre el clima espacial!
           </p>
-        </div> */}
+        </div>
       </ContenedorCapas>
     </>
   );

@@ -4,6 +4,9 @@ import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import Dialogo from "../components/Dialogo";
 import { motion } from "framer-motion";
+import fondoEscuela from "../assets/img/escena2/fondo.jpg";
+import "../styles/Escena2.css";
+import "../styles/CapaIlustracion.css";
 
 /**
  * ESCENA 2 - En la escuela
@@ -32,7 +35,12 @@ const ContenidoEscena2 = () => {
   return (
     <ContenedorCapas>
       {/* FONDO: Aula de la escuela */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-100 to-orange-100">
+      <div className="fondo">
+        <img 
+        src={fondoEscuela}
+        alt="Escuela"
+        className="fondo-img"
+        ></img>
         {/* <img src="/assets/img/escena2/aula-escuela.png" alt="Aula" className="w-full h-full object-cover" /> */}
         <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
           [Fondo: Aula de madera con pupitres]
@@ -40,22 +48,20 @@ const ContenidoEscena2 = () => {
       </div>
 
       {/* PERSONAJES: Javier y Mónica en sus pupitres */}
-      <div className="absolute left-[15%] bottom-[20%]" style={{ zIndex: 5 }}>
+      <div className="javier-img" style={{ zIndex: 5 }}>
         {/* <img src="/assets/img/escena2/javier-sentado.png" alt="Javier" /> */}
-        <div className="w-24 h-32 bg-orange-300 rounded-lg flex flex-col items-center justify-center text-white text-xs shadow-lg">
-          <div className="text-2xl mb-1">🦫</div>
-          <div>Javier</div>
+        <div className="caja">
+          <div className="name">Javier</div>
         </div>
       </div>
 
-      <div className="absolute right-[15%] bottom-[20%]" style={{ zIndex: 5 }}>
+      <div className="monica-img">
         {/* <img src="/assets/img/escena2/monica-sentada.png" alt="Mónica" /> */}
         <div
-          className="w-24 h-32 rounded-lg flex flex-col items-center justify-center text-white text-xs shadow-lg"
+          className="caja"
           style={{ backgroundColor: "#8B4513" }}
         >
-          <div className="text-2xl mb-1">🐻</div>
-          <div>Mónica</div>
+          <div className="name">Mónica</div>
         </div>
       </div>
 
@@ -176,7 +182,7 @@ const ContenidoEscena2 = () => {
 
       {/* Info educativa */}
       <div
-        className="absolute bottom-4 left-4 bg-black/70 text-white p-3 rounded-lg max-w-xs"
+        className="info-educativa"
         style={{ zIndex: 100 }}
       >
         <h3 className="text-xs font-bold mb-1">💡 ¿Sabías qué?</h3>
