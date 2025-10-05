@@ -1,0 +1,55 @@
+/* ============================================
+   ESCENA 9 - CASA DE MÓNICA AL DÍA SIGUIENTE
+   ============================================ */
+
+/* Contenedor de fondo */
+.escena9-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.escena9-imagen-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   AJUSTES PARA TEXTO DEL NARRADOR
+   ============================================ */
+
+/* Texto del narrador en esquina superior izquierda, compacto */
+.escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+  max-width: 400px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  top: 3%;
+  left: 3%;
+}
+
+/* ============================================
+   RESPONSIVE - ADAPTACIÓN MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+    max-width: 330px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .escena-container .texto-narrador.posicion-arriba-izquierda.estilo-compacto {
+    max-width: 270px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    top: 2%;
+    left: 2%;
+  }
+}
