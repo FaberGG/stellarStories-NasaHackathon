@@ -6,6 +6,7 @@ import Dialogo from "../components/Dialogo";
 import { motion } from "framer-motion";
 import linterna from "../assets/img/minijuego-mochila/linterna.png";
 import "../styles/Escena4.css";
+import fondo4 from "../assets/img/escena4/fondo4.png";
 
 /**
  * ESCENA 4 - Casa de Mónica
@@ -32,7 +33,9 @@ const ContenidoEscena4 = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-yellow-100 to-amber-100">
         {/* <img src="/assets/img/escena4/sala-casa-monica.png" alt="Sala" className="w-full h-full object-cover" /> */}
         <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
-          [Fondo: Sala de la casa de Mónica, más desordenada]
+          <div className="fondo3">
+            <img src={fondo4} alt="Casa Javier" className="fondo-img" />
+          </div>
         </div>
       </div>
 
@@ -98,11 +101,7 @@ const ContenidoEscena4 = () => {
           {/* <img src="/assets/img/escena4/linterna.png" alt="Linterna" /> */}
           <div className="capa-linterna">
             <div className="linterna">
-              <img
-                src={linterna}
-                alt="Linterna"
-                className="linterna-img"
-              />
+              <img src={linterna} alt="Linterna" className="linterna-img" />
             </div>
             <motion.div
               className="indicador-click"
@@ -116,7 +115,7 @@ const ContenidoEscena4 = () => {
       ) : (
         /* Linterna guardada en el escritorio */
         <motion.div
-          className="absolute right-[18%] top-[45%]"
+          className="linterna-soltar"
           style={{ zIndex: 8 }}
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 0.8, rotate: 0 }}
@@ -124,11 +123,9 @@ const ContenidoEscena4 = () => {
           {/* <img src="/assets/img/escena4/escritorio-con-linterna.png" alt="Escritorio" /> */}
           <div className="flex flex-col items-center">
             <div className="w-24 h-16 bg-amber-600 rounded-lg shadow-lg mb-2" />
-            <div className="text-3xl"><img
-                src={linterna}
-                alt="Linterna"
-                className="linterna-img"
-              /></div>
+            <div className="text-3xl">
+              <img src={linterna} alt="Linterna" className="linterna-img" />
+            </div>
           </div>
         </motion.div>
       )}
@@ -152,7 +149,8 @@ const ContenidoEscena4 = () => {
         <Dialogo
           texto="Mamá, papá... en la escuela dijeron que viene una tormenta solar. ¿No deberíamos prepararnos?"
           personaje="Mónica"
-          posicion="derecha"
+          posicion="custom"
+          posicionCustom={{ x: 42, y: 43 }}
           tipo="dialogo"
           duracion={5000}
           onCerrar={() => {
@@ -197,6 +195,8 @@ const Escena4CasaMonica = () => {
     <EscenaBase>
       <EscenaWrapper
         textoNarrador={textoNarrador}
+        posicionTexto="centro-izquierda"
+        estiloTexto="izquierda"
         fondoColor="from-yellow-50 to-amber-50"
       >
         <ContenidoEscena4 />

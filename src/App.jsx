@@ -24,6 +24,7 @@ const escenas = [
   Escena5ElSol,
   Escena6ElApagon,
   Escena7LasAuroras,
+  Escena8CasaJavierDia,
 ];
 
 const ContenidoApp = () => {
