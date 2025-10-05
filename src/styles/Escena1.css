@@ -1,104 +1,350 @@
+/* ============================================
+   ESCENA 1 - EL PUEBLO
+   ============================================ */
+
 .fondo {
-    filter: brightness(0.95);
+  filter: brightness(0.95);
 }
 
 .fondo-img {
-    width: 100%;
-    height: 100vh;
-    /* ocupa todo el alto visible */
-    overflow: hidden;
-    /* evita barras blancas o scroll */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .contenedor {
-    position: relative;
-    /* Permite ubicar hijos con absolute */
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-/* Cada personaje se posiciona libremente */
+/* ============================================
+   PERSONAJES INTERACTIVOS
+   ============================================ */
+
 .personaje-interactivo-j,
 .personaje-interactivo-m {
-    position: absolute;
-    cursor: pointer;
-    pointer-events: auto;
+  position: absolute;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 /* Javier, a la izquierda */
 .personaje-interactivo-j {
-    left: 15%;
-    /* distancia desde el borde izquierdo */
-    bottom: 15%;
-    /* distancia desde el borde inferior */
+  left: 15%;
+  bottom: 15%;
 }
 
-/* Mónica, a la derecha y un poco más arriba */
+/* Mónica, en el centro */
 .personaje-interactivo-m {
-    left: 48%;
-    bottom: 8%;
+  left: 48%;
+  bottom: 8%;
 }
 
 .caja {
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    /* que el nombre quede abajo del avatar */
-    pointer-events: auto;
-    /* permite clicks en la caja */
-}
-
-.name {
-    font-size: 2rem !important;
-    font-weight: bold !important;
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-overflow: ellipsis;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
 }
 
 .indicador-click {
-    position: relative;
-    top: 90%;
-    left: 50%;
-    background-color: aliceblue;
-    display: inline-block;
-    /* el fondo se ajusta al contenido */
-    padding: 6px 10px;
-    /* espacio interno */
-    max-width: 200px;
-    /* opcional, para no crecer demasiado */
-    border-radius: 10%;
-    font-size: large;
-    z-index: 1;
+  position: relative;
+  top: 90%;
+  left: 50%;
+  background-color: aliceblue;
+  display: inline-block;
+  padding: 6px 10px;
+  max-width: 200px;
+  border-radius: 10%;
+  font-size: large;
+  z-index: 1;
 }
 
 .div-texto-click {
-    position: relative;
+  position: relative;
 }
 
 .texto-click {
-    position: absolute;
-    /* <--- clave */
-    font-size: 20px;
-    background-color: aliceblue;
-    border-radius: 35%;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    padding: 6px 10px;
-    z-index: 1;
+  position: absolute;
+  font-size: 20px;
+  background-color: aliceblue;
+  border-radius: 35%;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding: 6px 10px;
+  z-index: 1;
 }
 
 .texto-javier {
-    left: 15%;
-    top: 47%;
+  left: 15%;
+  top: 47%;
 }
 
 .texto-monica {
+  left: 50%;
+  top: 45%;
+}
+
+/* ============================================
+   TEXTO DEL NARRADOR - MÁS GRANDE
+   ============================================ */
+
+/* Override para hacer el texto del narrador más grande en esta escena */
+.escena-container .texto-narrador.posicion-arriba-centro {
+  font-size: 1.6rem !important;
+  line-height: 2.5 !important;
+  max-width: 75% !important;
+  font-weight: 600 !important;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9), -1px -1px 4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ============================================
+   DIÁLOGOS DE LOS PERSONAJES
+   ============================================ */
+
+/* Diálogo de Javier - posicionado cerca de él */
+.escena1-dialogo-javier {
+  position: fixed;
+  left: 10%;
+  top: 30%;
+  z-index: 150;
+  width: 380px;
+}
+
+.escena1-dialogo-javier .dialogo-burbuja {
+  background: rgba(219, 234, 254, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid #60a5fa !important;
+  border-radius: 1.8rem !important;
+  padding: 1.5rem 2rem !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(59, 130, 246, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.7) !important;
+}
+
+.escena1-dialogo-javier .dialogo-personaje {
+  color: #1e40af !important;
+}
+
+.escena1-dialogo-javier .dialogo-texto {
+  color: #1e3a8a !important;
+}
+
+.escena1-dialogo-javier .dialogo-cola div {
+  border-top-color: rgba(219, 234, 254, 0.95) !important;
+}
+
+/* Diálogo de Mónica - posicionado cerca de ella */
+.escena1-dialogo-monica {
+  position: fixed;
+  left: 43%;
+  top: 35%;
+  z-index: 150;
+  width: 380px;
+}
+
+.escena1-dialogo-monica .dialogo-burbuja {
+  background: rgba(243, 232, 255, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid #a78bfa !important;
+  border-radius: 1.8rem !important;
+  padding: 1.5rem 2rem !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(139, 92, 246, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.7) !important;
+}
+
+.escena1-dialogo-monica .dialogo-personaje {
+  color: #6b21a8 !important;
+}
+
+.escena1-dialogo-monica .dialogo-texto {
+  color: #581c87 !important;
+}
+
+.escena1-dialogo-monica .dialogo-cola div {
+  border-top-color: rgba(243, 232, 255, 0.95) !important;
+}
+
+/* Estilos comunes para ambos diálogos */
+.escena1-dialogo-javier .dialogo-cerrar,
+.escena1-dialogo-monica .dialogo-cerrar {
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 50% !important;
+  color: white !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5) !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+}
+
+.escena1-dialogo-javier .dialogo-cerrar:hover,
+.escena1-dialogo-monica .dialogo-cerrar:hover {
+  transform: scale(1.15) rotate(90deg) !important;
+}
+
+/* ============================================
+   INFO EDUCATIVA
+   ============================================ */
+
+.info-educativa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  max-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.info-educativa h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-educativa p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .escena-container .texto-narrador.posicion-arriba-centro {
+    font-size: 1.8rem !important;
+    line-height: 2.2 !important;
+  }
+
+  .escena1-dialogo-javier,
+  .escena1-dialogo-monica {
+    width: 320px;
+  }
+
+  .personaje-interactivo-j {
+    left: 12%;
+  }
+
+  .personaje-interactivo-m {
+    left: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .escena-container .texto-narrador.posicion-arriba-centro {
+    font-size: 1.5rem !important;
+    line-height: 2 !important;
+    max-width: 85% !important;
+  }
+
+  .personaje-interactivo-j {
+    left: 10%;
+    bottom: 20%;
+  }
+
+  .personaje-interactivo-m {
+    left: 55%;
+    bottom: 15%;
+  }
+
+  .name {
+    font-size: 1.5rem !important;
+  }
+
+  .escena1-dialogo-javier {
+    left: 5%;
+    top: 35%;
+    width: 280px;
+  }
+
+  .escena1-dialogo-monica {
     left: 50%;
-    top: 45%;
+    top: 30%;
+    width: 280px;
+  }
+
+  .info-educativa {
+    max-width: 250px;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .info-educativa h3 {
+    font-size: 0.9rem;
+  }
+
+  .info-educativa p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .escena-container .texto-narrador.posicion-arriba-centro {
+    font-size: 1.2rem !important;
+    line-height: 1.8 !important;
+    max-width: 90% !important;
+  }
+
+  .personaje-interactivo-j {
+    left: 8%;
+    bottom: 25%;
+  }
+
+  .personaje-interactivo-m {
+    left: 50%;
+    bottom: 20%;
+  }
+
+  .name {
+    font-size: 1.2rem !important;
+  }
+
+  .escena1-dialogo-javier,
+  .escena1-dialogo-monica {
+    width: 260px;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .escena1-dialogo-javier {
+    top: 40%;
+  }
+
+  .escena1-dialogo-monica {
+    top: 35%;
+  }
+
+  .info-educativa {
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+    padding: 0.75rem 1rem;
+  }
 }

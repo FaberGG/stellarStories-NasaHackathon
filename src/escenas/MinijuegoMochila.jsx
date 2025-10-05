@@ -199,22 +199,6 @@ const ContenidoMinijuegoMochila = () => {
         )}
       </div>
 
-      {/* Barra de progreso */}
-      <div className="barra-progreso-container">
-        <p className="barra-progreso-titulo">Progreso</p>
-        <div className="barra-progreso-fondo">
-          <motion.div
-            className="barra-progreso-relleno"
-            initial={{ width: 0 }}
-            animate={{ width: `${progreso}%` }}
-            transition={{ duration: 0.5 }}
-          />
-        </div>
-        <p className="barra-progreso-texto">
-          {elementosEnMochila.length} / {elementos.length}
-        </p>
-      </div>
-
       {/* Elementos arrastrables */}
       {elementos.map((elemento) => {
         const yaEnMochila = elementosEnMochila.includes(elemento.id);

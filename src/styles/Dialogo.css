@@ -1,8 +1,12 @@
+/* ============================================
+   COMPONENTE DIALOGO - ESTILOS BASE
+   ============================================ */
+
 /* Contenedor de diálogo */
 .dialogo-container {
   position: absolute;
   z-index: 150;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* Burbuja de diálogo */
@@ -14,6 +18,7 @@
   background: white;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   animation: aparecerDialogo 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: auto;
 }
 
 @keyframes aparecerDialogo {
@@ -52,22 +57,19 @@
   right: -0.5rem;
   width: 1.5rem;
   height: 1.5rem;
-
   background: #ef4444;
   color: white;
   border: none;
   border-radius: 50%;
-
   font-size: 0.875rem;
   font-weight: bold;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  z-index: 10;
 }
 
 .dialogo-cerrar:hover {
@@ -85,7 +87,10 @@
   bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: -1;
+}
 
+.dialogo-cola div {
   width: 0;
   height: 0;
   border-left: 15px solid transparent;
@@ -144,7 +149,6 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 160;
-
   display: flex;
   gap: 0.5rem;
   pointer-events: none;
@@ -169,17 +173,14 @@
   bottom: 2rem;
   right: 2rem;
   z-index: 160;
-
   background: #3b82f6;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.5rem;
-
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   transition: all 0.3s ease;
 }
@@ -209,4 +210,47 @@
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
   }
+}
+
+/* ============================================
+   ANIMACIÓN DE ESCRITURA
+   ============================================ */
+
+/* Cursor parpadeante */
+.dialogo-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* Botón para saltar animación */
+.dialogo-saltar {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  z-index: 10;
+}
+
+.dialogo-saltar:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
+}
+
+.dialogo-saltar:active {
+  transform: scale(0.95);
 }

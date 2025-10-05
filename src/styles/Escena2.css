@@ -1,39 +1,391 @@
+/* ============================================
+   BOTÓN DE DIÁLOGO SOBRE EL PERSONAJE
+   ============================================ */
 
-.fondo-img {
-    position: absolute;
-    width: 100%;
-    height: 100vh;          /* ocupa todo el alto visible */
-    overflow: hidden;       /* evita barras blancas o scroll */
+/* Botón de diálogo flotante - superior izquierda de la ilustración */
+.escena2-boton-dialogo {
+  position: fixed;
+  right: 32%;
+  top: 15%;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  z-index: 120;
+  transition: all 0.3s ease;
 }
 
-.javier-img {
-    top: 50%;
-    width: auto;
+.escena2-boton-dialogo:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 32px rgba(34, 197, 94, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.escena2-boton-dialogo:active {
+  transform: scale(0.95);
+}
+
+/* Animación de pulso para el botón */
+@keyframes pulso-boton {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5), 0 0 30px rgba(34, 197, 94, 0.6);
+  }
+}
+
+.escena2-boton-dialogo {
+  animation: pulso-boton 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ESCENA 2 - LA ESCUELA
+   Layout: Mitad izquierda texto narrador, mitad derecha ilustración
+   ============================================ */
+
+/* Fondo de color que se ve en los bordes */
+.escena2-fondo-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e1cea6;
+  z-index: 0;
+}
+
+/* Contenedor de la imagen centrado */
+.escena2-contenedor-imagen {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Imagen de fondo - mantiene aspecto, centrada */
+.escena2-imagen-fondo {
+  height: 100vh;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* ============================================
+   TEXTO DEL NARRADOR - MITAD IZQUIERDA
+   ============================================ */
+
+/* Override específico para esta escena - mitad izquierda, sin fondo, más estrecho */
+.escena-container .texto-narrador.posicion-centro-izquierda {
+  left: 5%;
+  max-width: 35%;
+  padding: 0;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: justify;
+  font-size: 1.8rem;
+  line-height: 2.2;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), -1px -1px 3px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+/* ============================================
+   DIÁLOGO DE LA PROFESORA - CENTRADO MITAD DERECHA
+   ============================================ */
+
+/* Wrapper para posicionar el diálogo en la mitad derecha */
+.escena2-dialogo-wrapper {
+  position: fixed;
+  right: 12.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 150;
+  width: 400px;
+  pointer-events: auto;
+}
+
+/* Forzar que el diálogo se muestre y no desaparezca */
+.escena2-dialogo-wrapper > div {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+/* Estilos mejorados para el diálogo de la profesora */
+.escena2-dialogo-wrapper .dialogo-burbuja {
+  background: rgba(255, 249, 230, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid #d4a574 !important;
+  border-radius: 1.8rem !important;
+  padding: 1.5rem 2rem !important;
+  max-width: 400px !important;
+  width: 100% !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.7) !important;
+  position: relative !important;
+  pointer-events: auto !important;
+  display: block !important;
+}
+
+/* Nombre del personaje estilizado */
+.escena2-dialogo-wrapper .dialogo-personaje {
+  color: #8b4513 !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.7rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Texto del diálogo */
+.escena2-dialogo-wrapper .dialogo-texto {
+  color: #2c1810 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.75 !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Cola del diálogo mejorada */
+.escena2-dialogo-wrapper .dialogo-cola div {
+  border-top-color: rgba(255, 249, 230, 0.95) !important;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Botón cerrar bien posicionado y estilizado */
+.escena2-dialogo-wrapper .dialogo-cerrar {
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 50% !important;
+  color: white !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+.escena2-dialogo-wrapper .dialogo-cerrar:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  transform: scale(1.15) rotate(90deg) !important;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.6), 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.escena2-dialogo-wrapper .dialogo-cerrar:active {
+  transform: scale(0.95) rotate(90deg) !important;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+/* Animación de entrada del diálogo */
+@keyframes dialogo-entrada-suave {
+  0% {
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.03) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Aplicar animación al wrapper */
+.escena2-dialogo-wrapper {
+  animation: dialogo-entrada-suave 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Pulso sutil */
+@keyframes pulso-suave-dialogo {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+.escena2-dialogo-wrapper .dialogo-burbuja {
+  animation: pulso-suave-dialogo 3s ease-in-out infinite;
+}
+
+/* Brillo en el borde */
+@keyframes brillo-borde-dialogo {
+  0%,
+  100% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(0, 0, 0, 0.3),
+      inset 0 2px 5px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(0, 0, 0, 0.3),
+      inset 0 2px 5px rgba(255, 255, 255, 0.7),
+      0 0 25px rgba(212, 165, 116, 0.5);
+  }
+}
+
+/* ============================================
+   RESPONSIVE - ADAPTACIÓN MÓVIL
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .escena2-imagen-fondo {
+    width: 100vw;
     height: auto;
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end; /* que el nombre quede abajo del avatar */
-    pointer-events: auto; /* permite clicks en la caja */
-    padding: 1.5rem 2rem;
-    border-radius: 1.2rem;
-    background: rgba(139, 77, 197, 0.7);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .escena-container .texto-narrador.posicion-centro-izquierda {
+    max-width: 40%;
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+
+  .escena2-dialogo-wrapper {
+    width: 350px;
+    right: 10%;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-burbuja {
+    max-width: 350px !important;
+    padding: 1.3rem 1.7rem !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-texto {
+    font-size: 1rem !important;
+  }
+
+  .escena2-boton-dialogo {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    right: 30%;
+  }
 }
-.img-j{
-    width: 25vh;
-    height: 35vh;
+
+@media (max-width: 768px) {
+  /* En móvil, la imagen ocupa todo el ancho */
+  .escena2-contenedor-imagen {
+    width: 100vw;
+    left: 0;
+    transform: none;
+  }
+
+  .escena2-imagen-fondo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  /* Texto del narrador se reposiciona arriba */
+  .escena-container .texto-narrador.posicion-centro-izquierda {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 85%;
+    font-size: 1.3rem;
+    line-height: 1.9;
+    text-align: center;
+  }
+
+  /* Diálogo se centra en móvil */
+  .escena2-dialogo-wrapper {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 10%;
+    transform: translateX(-50%);
+    width: 300px;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-burbuja {
+    max-width: 300px !important;
+    padding: 1.1rem 1.5rem !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-texto {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-personaje {
+    font-size: 0.8rem !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-cerrar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 1rem !important;
+  }
 }
-.img-m {
-    width: 25vh;
-    height: 35vh;
-}
-.name {
-    font-size: 2rem !important;
-    font-weight: bold !important;
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-overflow: ellipsis;
+
+@media (max-width: 480px) {
+  .escena-container .texto-narrador.posicion-centro-izquierda {
+    max-width: 90%;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .escena2-dialogo-wrapper {
+    width: 260px;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-burbuja {
+    max-width: 260px !important;
+    padding: 1rem 1.3rem !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-texto {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-personaje {
+    font-size: 0.75rem !important;
+  }
+
+  .escena2-dialogo-wrapper .dialogo-cerrar {
+    width: 26px !important;
+    height: 26px !important;
+    top: -8px !important;
+    right: -8px !important;
+    font-size: 0.95rem !important;
+  }
 }
