@@ -12,7 +12,7 @@ export const useHistoria = () => {
 
 export const HistoriaProvider = ({ children }) => {
   const [escenaActual, setEscenaActual] = useState(0);
-  const totalEscenas = 7; // Actualizar según el número total de escenas
+  const totalEscenas = 8; // Actualizar según el número total de escenas
 
   const siguiente = () => {
     if (escenaActual < totalEscenas - 1) {

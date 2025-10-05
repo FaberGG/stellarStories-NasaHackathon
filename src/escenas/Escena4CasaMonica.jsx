@@ -4,6 +4,8 @@ import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import Dialogo from "../components/Dialogo";
 import { motion } from "framer-motion";
+import linterna from "../assets/img/minijuego-mochila/linterna.png";
+import "../styles/Escena4.css";
 
 /**
  * ESCENA 4 - Casa de Mónica
@@ -25,7 +27,7 @@ const ContenidoEscena4 = () => {
   };
 
   return (
-    <ContenedorCapas>
+    <ContenedorCapas className="contenedor-capas">
       {/* FONDO: Sala de la casa de Mónica (más desordenada) */}
       <div className="absolute inset-0 bg-gradient-to-b from-yellow-100 to-amber-100">
         {/* <img src="/assets/img/escena4/sala-casa-monica.png" alt="Sala" className="w-full h-full object-cover" /> */}
@@ -85,7 +87,7 @@ const ContenidoEscena4 = () => {
       {/* LINTERNA - Objeto interactivo */}
       {!linternaGuardada ? (
         <motion.div
-          className="absolute right-[15%] top-[40%] cursor-pointer"
+          className="contenedor-linterna"
           style={{ zIndex: 15 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.95 }}
@@ -94,10 +96,16 @@ const ContenidoEscena4 = () => {
           transition={{ duration: 2, repeat: Infinity }}
         >
           {/* <img src="/assets/img/escena4/linterna.png" alt="Linterna" /> */}
-          <div className="relative">
-            <div className="text-6xl">🔦</div>
+          <div className="capa-linterna">
+            <div className="linterna">
+              <img
+                src={linterna}
+                alt="Linterna"
+                className="linterna-img"
+              />
+            </div>
             <motion.div
-              className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-bold bg-yellow-400 px-2 py-1 rounded shadow-lg whitespace-nowrap"
+              className="indicador-click"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
@@ -116,7 +124,11 @@ const ContenidoEscena4 = () => {
           {/* <img src="/assets/img/escena4/escritorio-con-linterna.png" alt="Escritorio" /> */}
           <div className="flex flex-col items-center">
             <div className="w-24 h-16 bg-amber-600 rounded-lg shadow-lg mb-2" />
-            <div className="text-3xl">🔦</div>
+            <div className="text-3xl"><img
+                src={linterna}
+                alt="Linterna"
+                className="linterna-img"
+              /></div>
           </div>
         </motion.div>
       )}
@@ -124,7 +136,7 @@ const ContenidoEscena4 = () => {
       {/* Mensaje cuando guarda la linterna */}
       {linternaGuardada && (
         <motion.div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-4 rounded-2xl shadow-2xl"
+          className="linterna-juego-msg"
           style={{ zIndex: 50 }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

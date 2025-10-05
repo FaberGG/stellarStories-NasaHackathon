@@ -57,7 +57,7 @@ const ContenidoEscena2 = () => {
             texto="—Esta noche pasará algo muy especial en el espacio… ¡y debemos estar preparados!"
             personaje="Profesora Cóndor"
             posicion="centro"
-            tipo="dialogo"
+            tipo="narrador"
             duracion={0}
             onCerrar={handleCerrarDialogo}
             visible={true}

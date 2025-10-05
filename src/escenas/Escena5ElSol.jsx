@@ -107,7 +107,7 @@ const ContenidoEscena5 = () => {
       // Comenzar a desvanecer cuando está en el 70% del recorrido
       if (posicion > 30) {
         // Calcular opacidad basada en la distancia restante
-        opacidad = Math.max(0, 1 - (posicion - 20) / 30);
+        opacidad = Math.max(0, 1 - (posicion - 10) / 30);
         console.log(opacidad);
       }
 

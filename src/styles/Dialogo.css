@@ -1,42 +1,30 @@
 /* ============================================
-   COMPONENTE DIALOGO - ESTILOS BASE
+   COMPONENTE DE DIÁLOGOS
    ============================================ */
 
-/* Contenedor de diálogo */
+/* Contenedor principal del diálogo */
 .dialogo-container {
   position: absolute;
   z-index: 150;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 /* Burbuja de diálogo */
 .dialogo-burbuja {
-  position: relative;
-  padding: 1rem 1.5rem;
-  max-width: 400px;
-  border-radius: 1.5rem;
   background: white;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  animation: aparecerDialogo 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  pointer-events: auto;
-}
-
-@keyframes aparecerDialogo {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.8rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  position: relative;
+  border: 3px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Nombre del personaje */
 .dialogo-personaje {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: bold;
-  color: #3b82f6;
+  color: #555;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -44,213 +32,259 @@
 
 /* Texto del diálogo */
 .dialogo-texto {
-  font-size: 0.95rem;
-  color: #1f2937;
+  font-size: 1.1rem;
   line-height: 1.6;
+  color: #222;
   margin: 0;
+  font-family: "Shadows Into Light Two", cursive, sans-serif;
 }
 
-/* Botón cerrar */
-.dialogo-cerrar {
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 0.875rem;
+/* Cursor parpadeante durante la animación */
+.dialogo-cursor {
   font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
-  z-index: 10;
+  color: #333;
+  margin-left: 0.1rem;
 }
 
-.dialogo-cerrar:hover {
-  background: #dc2626;
-  transform: scale(1.1);
-}
-
-.dialogo-cerrar:active {
-  transform: scale(0.95);
-}
-
-/* Cola del diálogo (triangulito) */
+/* Cola de la burbuja (diálogo normal) */
 .dialogo-cola {
   position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-}
-
-.dialogo-cola div {
+  bottom: -15px;
+  left: 30px;
   width: 0;
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 15px solid white;
+  border-top: 20px solid white;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
 }
 
-/* Cola para pensamiento (burbujas) */
+.dialogo-cola div {
+  position: absolute;
+  top: -23px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Burbuja de pensamiento */
+.dialogo-pensamiento {
+  border-radius: 2rem;
+  background: #f0f8ff;
+  border: 3px solid #87ceeb;
+}
+
+/* Burbujas para el pensamiento */
 .dialogo-cola-pensamiento {
   position: absolute;
-  bottom: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -40px;
+  left: 25px;
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .dialogo-cola-pensamiento .burbuja {
-  background: white;
-  border: 2px solid #d1d5db;
+  width: 10px;
+  height: 10px;
+  background: #f0f8ff;
+  border: 2px solid #87ceeb;
   border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dialogo-cola-pensamiento .burbuja:nth-child(1) {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
+  margin-left: 10px;
 }
 
 .dialogo-cola-pensamiento .burbuja:nth-child(2) {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
 }
 
 .dialogo-cola-pensamiento .burbuja:nth-child(3) {
-  width: 4px;
-  height: 4px;
+  width: 15px;
+  height: 15px;
 }
 
-/* Estilos para tipo de diálogo */
-.dialogo-pensamiento {
-  border: 4px dashed #d1d5db;
-  border-radius: 50%;
-  padding: 1.5rem;
-}
-
+/* Burbuja de narrador (sin cola) */
 .dialogo-narrador {
-  border: 2px solid #3b82f6;
-  border-radius: 0.5rem;
-  background: #eff6ff;
-}
-
-/* Indicadores de progreso */
-.dialogo-indicadores {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 160;
-  display: flex;
-  gap: 0.5rem;
-  pointer-events: none;
-}
-
-.dialogo-indicador-punto {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #d1d5db;
-  transition: all 0.3s ease;
-}
-
-.dialogo-indicador-punto.activo {
-  background: #3b82f6;
-  transform: scale(1.3);
-}
-
-/* Botón siguiente */
-.dialogo-boton-siguiente {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 160;
-  background: #3b82f6;
+  background: rgba(0, 0, 0, 0.85);
   color: white;
-  padding: 0.75rem 1.5rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  max-width: 500px;
+}
+
+.dialogo-narrador .dialogo-texto {
+  color: white;
+}
+
+/* Botón de cerrar */
+.dialogo-cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.dialogo-boton-siguiente:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
-}
-
-.dialogo-boton-siguiente:active {
-  transform: translateY(0);
-}
-
-/* Adaptación móvil */
-@media (max-width: 768px) {
-  .dialogo-burbuja {
-    max-width: 300px;
-    padding: 0.875rem 1.25rem;
-  }
-
-  .dialogo-texto {
-    font-size: 0.875rem;
-  }
-
-  .dialogo-boton-siguiente {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
-  }
-}
-
-/* ============================================
-   ANIMACIÓN DE ESCRITURA
-   ============================================ */
-
-/* Cursor parpadeante */
-.dialogo-cursor {
-  display: inline-block;
-  margin-left: 2px;
-  font-weight: bold;
-  color: #1f2937;
+.dialogo-cerrar:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
 }
 
 /* Botón para saltar animación */
 .dialogo-saltar {
   position: absolute;
-  bottom: -0.5rem;
-  right: -0.5rem;
-  width: 2rem;
-  height: 2rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  font-size: 1rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 0.75rem;
+  color: #666;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
-  z-index: 10;
 }
 
 .dialogo-saltar:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
-.dialogo-saltar:active {
-  transform: scale(0.95);
+/* Indicadores de progreso para secuencias */
+.dialogo-indicadores {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 200;
+}
+
+.dialogo-indicador-punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.dialogo-indicador-punto.activo {
+  background: white;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Botón siguiente en secuencias */
+.dialogo-boton-siguiente {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease;
+  z-index: 200;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dialogo-boton-siguiente:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE - ADAPTACIÓN MÓVIL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .dialogo-burbuja {
+    max-width: 280px;
+    padding: 1rem 1.4rem;
+    border-radius: 1.2rem;
+  }
+
+  .dialogo-personaje {
+    font-size: 0.75rem;
+  }
+
+  .dialogo-texto {
+    font-size: 1rem;
+  }
+
+  .dialogo-narrador {
+    max-width: 350px;
+  }
+
+  .dialogo-boton-siguiente {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialogo-burbuja {
+    max-width: 240px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+  }
+
+  .dialogo-personaje {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .dialogo-texto {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .dialogo-narrador {
+    max-width: 280px;
+  }
+
+  .dialogo-cerrar {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+
+  .dialogo-saltar {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .dialogo-boton-siguiente {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
 }

@@ -4,6 +4,7 @@ import EscenaBase, { useEscena } from "../components/EscenaBase";
 import { ContenedorCapas } from "../components/CapaIlustracion";
 import { SecuenciaDialogos } from "../components/Dialogo";
 import { motion } from "framer-motion";
+import fondo3 from "../assets/img/escena3/fondo.png";
 
 /**
  * ESCENA 3 - Casa de Javier con su familia
@@ -188,25 +189,32 @@ const ContenidoEscena3 = () => {
       texto:
         "Papá, en la escuela dijeron que viene una tormenta solar. ¿Qué es eso?",
       personaje: "Javier",
-      posicion: "izquierda",
+      posicion: "custom",
+      posicionCustom: { x: 10, y: 5 },
     },
     {
       texto:
         "Mira hijo, el Sol a veces se emociona tanto que manda un estornudo gigante de luz y energía hasta la Tierra.",
       personaje: "Papá Capibara",
-      posicion: "derecha",
+      posicion: "custom",
+      posicionCustom: { x: 36, y: 78 },
+      tipo: "narrador",
     },
     {
       texto:
         "Eso se llama clima espacial. Cuando eso pasa, lo mejor es desconectar las cosas eléctricas para que no se dañen.",
       personaje: "Papá Capibara",
-      posicion: "derecha",
+      posicion: "custom",
+      posicionCustom: { x: 36, y: 78 },
+      tipo: "narrador",
     },
     {
       texto:
         "¡Y tener listo un kit con linterna, comida y radio! ¡Así estaremos preparados como verdaderos exploradores del espacio!",
       personaje: "Papá Capibara",
-      posicion: "derecha",
+      posicion: "custom",
+      posicionCustom: { x: 36, y: 78 },
+      tipo: "narrador",
     },
   ];
 
@@ -215,8 +223,8 @@ const ContenidoEscena3 = () => {
       {/* FONDO: Sala de la casa */}
       <div className="absolute inset-0 bg-gradient-to-b from-orange-100 to-yellow-100">
         {/* <img src="/assets/img/escena3/sala-casa-javier.png" alt="Sala" className="w-full h-full object-cover" /> */}
-        <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
-          [Fondo: Sala de la casa de Javier]
+        <div className="fondo3">
+          <img src={fondo3} alt="Casa Javier" className="fondo-img" />
         </div>
       </div>
 
@@ -341,22 +349,11 @@ const ContenidoEscena3 = () => {
       {/* Diálogos */}
       {mostrarDialogos && (
         <SecuenciaDialogos
+          className="contenedor-msg"
           dialogos={dialogos}
           onCompletar={() => setMostrarDialogos(false)}
         />
       )}
-
-      {/* Info educativa */}
-      <div
-        className="absolute bottom-4 left-4 bg-black/70 text-white p-3 rounded-lg max-w-xs"
-        style={{ zIndex: 100 }}
-      >
-        <h3 className="text-xs font-bold mb-1">¿Sabías qué?</h3>
-        <p className="text-xs leading-relaxed">
-          Desconectar electrodomésticos durante una tormenta solar puede
-          protegerlos de sobrecargas eléctricas.
-        </p>
-      </div>
     </ContenedorCapas>
   );
 };
@@ -369,7 +366,8 @@ const Escena3CasaJavier = () => {
     <EscenaBase>
       <EscenaWrapper
         textoNarrador={textoNarrador}
-        fondoColor="from-orange-50 to-yellow-50"
+        posicionTexto="centro-derecha"
+        estiloTexto="derecha"
       >
         <ContenidoEscena3 />
       </EscenaWrapper>

@@ -1,0 +1,19 @@
+.contenedor-capas {
+  position: absolute !important;
+  display: grid !important;
+}
+
+.contenedor-linterna {
+  height: 50%;
+  width: auto;
+}
+.capa-linterna {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  cursor: pointer;
+}
+.linterna-img {
+  width: 10vh;
+  height: auto;
+}
